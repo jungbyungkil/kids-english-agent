@@ -1,0 +1,18 @@
+{
+  "name": "kids-english-agent",
+  "version": "1.0.0",
+  "description": "가볍게 실행되는 **AI 에이전트 MVP**입니다.   - 모델: Azure OpenAI (gpt-4.1-mini) - 도구: Azure AI Search (RAG), Quick Calculator - UI: Streamlit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

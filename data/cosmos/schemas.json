@@ -1,0 +1,93 @@
+{
+  "Users": {
+    "id": {"type": "string"},
+    "role": {"type": "string", "enum": ["parent", "child"]},
+    "parentId": {"type": ["string", "null"]},
+    "email": {"type": ["string", "null"]},
+    "phone": {"type": ["string", "null"]},
+    "consentAt": {"type": ["string", "null"], "format": "date-time"}
+  },
+  "ChildProfiles": {
+    "id": {"type": "string"},
+    "parentId": {"type": "string"},
+    "name": {"type": "string"},
+    "birthYmd": {"type": "string"},
+    "age": {"type": "integer"},
+    "cefr": {"type": "string"},
+    "characters": {"type": "array", "items": {"type": "string"}},
+    "createdAt": {"type": "string", "format": "date-time"}
+  },
+  "Videos": {
+    "id": {"type": "string"},
+    "youtubeId": {"type": "string"},
+    "title": {"type": "string"},
+    "durationSec": {"type": "integer"},
+    "thumbnail": {"type": ["string", "null"]},
+    "captions": {"type": "boolean"},
+    "indexedAt": {"type": ["string", "null"], "format": "date-time"}
+  },
+  "VideoTranscripts": {
+    "id": {"type": "string"},
+    "videoId": {"type": "string"},
+    "lang": {"type": "string"},
+    "segments": {"type": "array", "items": {"type": "object"}},
+    "tokens": {"type": "integer"},
+    "cefrEstimate": {"type": ["string", "null"]}
+  },
+  "WatchLogs": {
+    "id": {"type": "string"},
+    "childId": {"type": "string"},
+    "videoId": {"type": "string"},
+    "startedAt": {"type": "string", "format": "date-time"},
+    "durationSec": {"type": "integer"}
+  },
+  "LearningSessions": {
+    "id": {"type": "string"},
+    "childId": {"type": "string"},
+    "videoId": {"type": "string"},
+    "words": {"type": "array", "items": {"type": "string"}},
+    "quizScore": {"type": ["integer", "null"]},
+    "finishedAt": {"type": "string", "format": "date-time"}
+  },
+  "WordMastery": {
+    "id": {"type": "string"},
+    "childId": {"type": "string"},
+    "word": {"type": "string"},
+    "exposures": {"type": "integer"},
+    "correct": {"type": "integer"},
+    "lastSeenAt": {"type": ["string", "null"], "format": "date-time"},
+    "mastered": {"type": "boolean"},
+    "cefr": {"type": ["string", "null"]}
+  },
+  "LevelHistory": {
+    "id": {"type": "string"},
+    "childId": {"type": "string"},
+    "cefr": {"type": "string"},
+    "reason": {"type": ["string", "null"]},
+    "at": {"type": "string", "format": "date-time"}
+  },
+  "Academies": {
+    "id": {"type": "string"},
+    "name": {"type": "string"},
+    "lat": {"type": "number"},
+    "lon": {"type": "number"},
+    "address": {"type": "string"},
+    "phone": {"type": ["string", "null"]},
+    "tags": {"type": "array", "items": {"type": "string"}},
+    "source": {"type": ["string", "null"]},
+    "updatedAt": {"type": "string", "format": "date-time"}
+  },
+  "Recommendations": {
+    "id": {"type": "string"},
+    "childId": {"type": "string"},
+    "videoId": {"type": "string"},
+    "reason": {"type": ["string", "null"]},
+    "createdAt": {"type": "string", "format": "date-time"}
+  },
+  "_indexes": [
+    {"collection": "WordMastery", "fields": ["childId", "mastered"]},
+    {"collection": "WatchLogs", "fields": ["childId", "startedAt"]},
+    {"collection": "VideoTranscripts", "fields": ["videoId"]}
+  ]
+}
+

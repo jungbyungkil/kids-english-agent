@@ -1,0 +1,207 @@
+openapi: 3.0.0
+info:
+  title: Kids English Agent Tools API
+  version: 0.1.0
+  description: Azure Functions tool endpoints for the Learning Agent
+paths:
+  /tools/search_youtube_videos:
+    post:
+      summary: Search captioned kid-friendly videos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchReq'
+      responses:
+        '200': { description: OK }
+  /tools/index_video:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                videoUrl: { type: string }
+              required: [videoUrl]
+      responses:
+        '200': { description: OK }
+  /tools/rank_video_by_level:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                transcriptId: { type: string }
+                cefr: { type: string }
+              required: [transcriptId, cefr]
+      responses:
+        '200': { description: OK }
+  /tools/extract_top_words:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                transcriptId: { type: string }
+                count: { type: integer, default: 5 }
+                cefr: { type: string }
+              required: [transcriptId, cefr]
+      responses:
+        '200': { description: OK }
+  /tools/example_sentence:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                word: { type: string }
+                cefr: { type: string }
+                context:
+                  type: object
+                  properties:
+                    videoTitle: { type: string }
+                    character: { type: string }
+              required: [word, cefr]
+      responses:
+        '200': { description: OK }
+  /tools/update_progress:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                childId: { type: string }
+                videoId: { type: string }
+                learnedWords:
+                  type: array
+                  items: { type: string }
+                quizScore: { type: integer, minimum: 0, maximum: 100 }
+                durationSec: { type: integer, minimum: 0 }
+              required: [childId, videoId, learnedWords, durationSec]
+      responses:
+        '200': { description: OK }
+  /tools/compute_level:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                childId: { type: string }
+              required: [childId]
+      responses:
+        '200': { description: OK }
+  /tools/find_local_academies:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                address: { type: string }
+                radiusMeters: { type: integer, default: 3000 }
+                tags:
+                  type: array
+                  items: { type: string }
+                topK: { type: integer, default: 10 }
+              required: [address]
+      responses:
+        '200': { description: OK }
+  /tools/play_cheer:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                voice: { type: string, default: child }
+                style: { type: string, default: cheerful }
+      responses:
+        '200': { description: OK }
+  /tools/parent_report:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                childId: { type: string }
+                period: { type: string, enum: [7d,30d,90d] }
+              required: [childId]
+      responses:
+        '200': { description: OK }
+  /tools/save_prefs:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                childId: { type: string }
+                recent_videos: { type: array, items: { type: object } }
+                favorite_videos: { type: array, items: { type: object } }
+              required: [childId]
+      responses:
+        '200': { description: OK }
+  /tools/load_prefs:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                childId: { type: string }
+              required: [childId]
+      responses:
+        '200': { description: OK }
+  /tools/say_word:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                word: { type: string }
+                voice: { type: string }
+                style: { type: string }
+              required: [word]
+      responses:
+        '200': { description: OK }
+components:
+  schemas:
+    SearchReq:
+      type: object
+      properties:
+        age: { type: integer }
+        cefr: { type: string, enum: [PREA1,A1,A2,B1,B2] }
+        characters: { type: array, items: { type: string } }
+        max: { type: integer, default: 10 }

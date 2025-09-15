@@ -1,0 +1,45 @@
+{
+  "childId": "local_child",
+  "recent_videos": [
+    {
+      "id": "J---aiyznGQ",
+      "title": "블루이 learns colors #2",
+      "channel": "Kids Channel",
+      "url": "https://www.youtube.com/watch?v=J---aiyznGQ",
+      "durationSec": 195,
+      "hasCaptions": true,
+      "thumbnail": "https://img.youtube.com/vi/J---aiyznGQ/hqdefault.jpg",
+      "tags": [
+        "A1",
+        "블루이"
+      ]
+    },
+    {
+      "id": "kAKrronB2Ns",
+      "title": "블루이 learns colors",
+      "channel": "Kids Channel",
+      "url": "https://www.youtube.com/watch?v=kAKrronB2Ns",
+      "durationSec": 212,
+      "hasCaptions": true,
+      "thumbnail": "https://img.youtube.com/vi/kAKrronB2Ns/hqdefault.jpg",
+      "tags": [
+        "A1",
+        "블루이"
+      ]
+    },
+    {
+      "id": "yt_stub_1",
+      "title": "블루이 learns colors",
+      "channel": "Kids Channel",
+      "url": "https://www.youtube.com/watch?v=abc123",
+      "durationSec": 180,
+      "hasCaptions": true,
+      "thumbnail": "https://img.youtube.com/vi/abc123/hqdefault.jpg",
+      "tags": [
+        "A1",
+        "블루이"
+      ]
+    }
+  ],
+  "favorite_videos": []
+}

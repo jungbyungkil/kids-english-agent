@@ -1,0 +1,20 @@
+[
+  {
+    "id": "seed_yt_001",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Pikachu learns colors",
+    "durationSec": 180,
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "captions": true,
+    "indexedAt": null
+  },
+  {
+    "id": "seed_yt_002",
+    "youtubeId": "xyz987",
+    "title": "Forest adventure for kids",
+    "durationSec": 240,
+    "thumbnail": null,
+    "captions": true,
+    "indexedAt": null
+  }
+]
