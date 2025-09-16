@@ -1,4 +1,7 @@
-# Kids English Agent (Visual Studio / Windows)
+## Kids English Agent
+
+A family-friendly English learning assistant for children (ages 0–7+). 
+The app recommends YouTube videos by age/CEFR and turns watched videos into bite‑size learning (top vocabulary, sentences, cheering sounds). 
 
 가볍게 실행되는 **AI 에이전트 MVP**입니다.  
 - 모델: Azure OpenAI (gpt-4.1-mini)
@@ -19,8 +22,4 @@ kids-english-agent/
   README.md
 ```
 
-## Kids English Agent
-
-A family-friendly English learning assistant for children (ages 0–7+). 
-The app recommends YouTube videos by age/CEFR and turns watched videos into bite‑size learning (top vocabulary, sentences, cheering sounds). 
 
